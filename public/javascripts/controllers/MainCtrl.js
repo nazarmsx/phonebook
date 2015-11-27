@@ -1,10 +1,9 @@
 var controllers = angular.module('myApp.controllers', []);
-controllers.controller('IndexController', ['$scope', function($scope) {
+controllers.controller('IndexController', ['$scope','$location', function($scope,$location) {
     $scope.message = 'Hello From Controller';
-    $scope.user = {
-        name: 'John Doe',
-        email: '',
-        phone: '',
-        address: 'Mountain View, CA'
+    $scope.user = {login:'nazar',password:'1111'};
+    $scope.login=function()
+    {
+        $location.path("/home");
     };
 }]);

@@ -1,0 +1,131 @@
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Users</h3></div>
+
+                <table class="table table-striped">
+                    <thead><tr>
+                        <th>Name</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="contact in contacts">
+                        <td>{[{ contact.first_name +'  '+ contact.last_name}]}</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                <ul class="pager" >
+                    <li class="previous btn-danger"><a href="" ng-click="previous()">Previous</a></li>
+                    <li class="next btn-default">    <a href="" ng-click="next()">Next</a></li>
+                </ul>
+                <md-button  class="md-primary">Add</md-button>
+                <md-button class="md-warn">Delete</md-button>
+
+            </div>
+        </div>
+
+        <div class="col-xs-7 col-sm-4 col-md-4 col-lg-4">
+            <md-content layout-padding class="autoScroll">
+                <md-input-container class="md-icon-float" >
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Name</label>
+                    <md-icon  class="name"></md-icon>
+                    <input ng-model="user.first_name" type="text">
+                </md-input-container>
+                <md-input-container class="md-icon-float" >
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Sur-Name</label>
+                    <md-icon  class="name"></md-icon>
+                    <input ng-model="user.last_name" type="text">
+
+                </md-input-container>
+                <md-input-container class="md-icon-float" >
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Tel. no</label>
+                    <md-icon  class="name"></md-icon>
+                    <input ng-model="user.telphone_number" type="text">
+
+                </md-input-container>
+                <div class="flexbox-container">
+                    <div class="file_input">fdf</div>
+                    <div class="comments"><md-input-container>
+                        <label>Comments</label>
+                        <textarea ng-model="color" rows="4" required md-maxlength="10"></textarea>
+                    </md-input-container></div>
+                </div>
+                <md-input-container class="md-icon-float" >
+                    <md-button class="md-raised" ng-click="login()">Login</md-button>
+                </md-input-container>
+            </md-content> </div>
+    </div>
+</div>
+<!--<div class="flexbox-container">-->
+    <!--<div class="list">-->
+        <!--<section layout="row" layout-align="center top" layout-wrap="" style="align-self: flex-start;">-->
+
+        <!--<table>-->
+            <!--<tr ng-repeat="contact in contacts">-->
+                <!--<td>{[{ contact.first_name }]}</td>-->
+                <!--<td>{[{ contact.last_name }]}</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+        <!--</section>-->
+            <!--<section layout="row"  layout-align="center center" layout-wrap="" style="align-self: flex-end;">-->
+
+      <!--<md-button  class="md-primary">Add</md-button>-->
+      <!--<md-button class="md-warn">Delete</md-button>-->
+
+
+    <!--</section>-->
+    <!--</div>-->
+    <!--<div class="user_input">-->
+        <!--<md-content layout-padding class="autoScroll">-->
+            <!--<md-input-container class="md-icon-float" >-->
+                <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
+                <!--<label>Name</label>-->
+                <!--<md-icon  class="name"></md-icon>-->
+                <!--<input ng-model="user.first_name" type="text">-->
+            <!--</md-input-container>-->
+            <!--<md-input-container class="md-icon-float" >-->
+                <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
+                <!--<label>Sur-Name</label>-->
+                <!--<md-icon  class="name"></md-icon>-->
+                <!--<input ng-model="user.last_name" type="text">-->
+
+            <!--</md-input-container>-->
+            <!--<md-input-container class="md-icon-float" >-->
+                <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
+                <!--<label>Tel. no</label>-->
+                <!--<md-icon  class="name"></md-icon>-->
+                <!--<input ng-model="user.telphone_number" type="text">-->
+
+            <!--</md-input-container>-->
+            <!--<div class="flexbox-container">-->
+                <!--<div class="file_input">fdf</div>-->
+                <!--<div class="comments"><md-input-container>-->
+                    <!--<label>Comments</label>-->
+                    <!--<textarea ng-model="color" rows="4" required md-maxlength="10"></textarea>-->
+                <!--</md-input-container></div>-->
+            <!--</div>-->
+            <!--<md-input-container class="md-icon-float" >-->
+                <!--<md-button class="md-raised" ng-click="login()">Login</md-button>-->
+            <!--</md-input-container>-->
+        <!--</md-content>-->
+
+
+    <!--</div>-->
+
+
+
+
+
+
+<!--</div>-->

@@ -6,6 +6,9 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'partials/index',
         controller: 'IndexController'
+    }).when('/home', {
+        templateUrl: 'partials/home',
+        controller: 'HomeController'
     }).otherwise({
         redirectTo: '/'
     });
@@ -13,6 +16,10 @@ app.config(['$routeProvider', function ($routeProvider) {
     $locationProvider.html5Mode(true);
 }]);
 
+app.config(function($interpolateProvider) {
+    $interpolateProvider.startSymbol('{[{');
+    $interpolateProvider.endSymbol('}]}');
+});
 //'use strict';
 //
 //var app = angular.module('myApp',['ngRoute','ngResource','ngRoute'])
