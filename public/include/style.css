@@ -1,0 +1,193 @@
+header{
+  height:100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*body {*/
+  /*padding: 50px;*/
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+/*}*/
+
+/*a {*/
+  /*color: #00B7FF;*/
+/*}*/
+
+
+/*#main {*/
+  /*min-height: 800px;*/
+  /*margin: 0px;*/
+  /*padding: 0px;*/
+  /*display: -webkit-flex;*/
+  /*display:         flex;*/
+  /*-webkit-flex-flow: row;*/
+  /*flex-flow: row;*/
+/*}*/
+
+/*#main > article {*/
+  /*margin: 4px;*/
+  /*padding: 5px;*/
+  /*border: 1px solid #cccc33;*/
+  /*border-radius: 7pt;*/
+  /*background: #dddd88;*/
+  /*-webkit-flex: 3 1 50%;*/
+  /*flex: 3 1 50%;*/
+  /*-webkit-order: 2;*/
+  /*order: 2;*/
+/*}*/
+
+/*#main > nav {*/
+  /*margin: 4px;*/
+  /*padding: 5px;*/
+  /*border: 1px solid #8888bb;*/
+  /*border-radius: 7pt;*/
+  /*background: #ccccff;*/
+  /*-webkit-flex: 1 6 20%;*/
+  /*flex: 1 6 20%;*/
+  /*-webkit-order: 1;*/
+  /*order: 1;*/
+/*}*/
+
+/*#main > aside {*/
+  /*margin: 4px;*/
+  /*padding: 5px;*/
+  /*border: 1px solid #8888bb;*/
+  /*border-radius: 7pt;*/
+  /*background: #ccccff;*/
+  /*-webkit-flex: 1 6 20%;*/
+  /*flex: 1 6 20%;*/
+  /*-webkit-order: 3;*/
+  /*order: 3;*/
+/*}*/
+
+/*header, footer {*/
+  /*display: block;*/
+  /*margin: 4px;*/
+  /*padding: 5px;*/
+  /*min-height: 100px;*/
+ /*/!* border: 1px solid #eebb55;*!/*/
+  /*border-radius: 7pt;*/
+
+/*}*/
+
+/*/!* Too narrow to support three columns *!/*/
+/*@media all and (max-width: 640px) {*/
+
+  /*#main, #page {*/
+    /*-webkit-flex-flow: column;*/
+    /*flex-direction: column;*/
+  /*}*/
+
+  /*#main > article, #main > nav, #main > aside {*/
+    /*/!* Return them to document order *!/*/
+    /*-webkit-order: 0;*/
+    /*order: 0;*/
+  /*}*/
+
+  /*#main > nav, #main > aside, header, footer {*/
+    /*min-height: 50px;*/
+    /*max-height: 50px;*/
+  /*}*/
+/*}*/
+
+/*div.input-group {*/
+  /*display: flex;*/
+/*}*/
+
+/*label {*/
+  /*white-space: nowrap;*/
+/*}*/
+
+/*/!*input {*!/*/
+  /*/!*display: inline-block; // for safari*!/*/
+/*/!*flex: 1;*!/*/
+/*/!*}*!/*/
+
+/*.inputdemoErrors .inputErrorsApp {*/
+  /*min-height: 48px; }*/
+
+
+/*.inputdemoIcons .inputIconDemo {*/
+  /*min-height: 48px; }*/
+/*.inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {*/
+  /*color: green; }*/
+/*.inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {*/
+  /*color: dodgerblue; }*/
+/*.inputdemoIcons md-input-container.md-input-invalid > md-icon.email, .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {*/
+  /*color: red; }*/
+
+
+/*.flexbox-container {*/
+  /*display: -ms-flex;*/
+  /*display: -webkit-flex;*/
+  /*display: flex;*/
+
+/*}*/
+
+/*.flexbox-container > div {*/
+  /*width: 50%;*/
+  /*padding: 10px;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+/*}*/
+
+/*.flexbox-container > div:first-child {*/
+  /*margin-right: 20px;*/
+
+/*}*/
+
+/*.flexbox-container > div.list {*/
+  /*width: 30%;*/
+  /*height: 400px;*/
+  /*padding: 10px;*/
+  /*margin-left:10px;*/
+  /*border: 3px solid black;*/
+  /*border-radius: 3px;*/
+  /*display: flex;*/
+
+/*}*/
+/*.flexbox-container > div.user_input {*/
+  /*width: 60%;*/
+  /*padding: 10px;*/
+/*}*/
+
+/*.flexbox-container > div.file_input {*/
+   /*width: 50%;*/
+  /*height: 150px;*/
+  /*padding: 45px;*/
+ /*}*/
+/*.flexbox-container > div.comments {*/
+  /*width: 50%;*/
+  /*height: 150px;*/
+  /*padding: 45px;*/
+/*}*/
+
+
+/*.flexbox-container div.contacts {*/
+  /*width: 90%;*/
+
+/*}*/
+
