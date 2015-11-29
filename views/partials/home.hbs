@@ -4,78 +4,233 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading"><h3>Users</h3></div>
-
-                <table class="table table-striped">
-                    <thead><tr>
-                        <th>Name</th>
 
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="contact in contacts">
-                        <td ng-click="edit(contact)">{[{ contact.first_name +'  '+ contact.last_name}]}</td>
+            <div class="col-xs-12 col-md-4 ">
+                <section>
+                    <article ng-repeat="contact in contacts">
+                        <div title="Go to contact details" class="contact"  ng-click="edit(contact)">
+                            <img class="contacts-img" ng-src={[{contact.imageUrl}]}>
+                            <h3>{[{contact.first_name}]} {[{contact.last_name}]}</h3>
+                            <h6>{[{contact.phone}]}</h6>
+                        </div>
+                    </article>
+                </section>
+                <div class="row">
+                    <div class="col-xs-1"><button type="button" class="btn btn-default">+</button></div>
+                    <div class="col-xs-1"><button type="button" class="btn btn-default">-</button></div>
 
-                    </tr>
-                    </tbody>
-                </table>
-                <ul class="pager" >
-                    <li class="previous btn-danger"><a href="" ng-click="previous()">Previous</a></li>
-                    <li class="next btn-default">    <a href="" ng-click="next()">Next</a></li>
-                </ul>
-                <md-button  class="md-primary">Add</md-button>
-                <md-button class="md-warn">Delete</md-button>
-
+                </div>
             </div>
-        </div>
-        <form action="" novalidate>
-        <div class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
-            <md-content layout-padding class="autoScroll">
-                <md-input-container class="md-icon-float" >
-                    <!-- Use floating label instead of placeholder -->
-                    <label>Name</label>
-                    <md-icon  class="name"></md-icon>
-                    <input ng-model="user.first_name" required   maxlength="30" type="text">
-                </md-input-container>
-                <md-input-container class="md-icon-float" >
-                    <!-- Use floating label instead of placeholder -->
-                    <label>Sur-Name</label>
-                    <md-icon  class="name"></md-icon>
-                    <input ng-model="user.last_name" type="text">
 
-                </md-input-container>
-                <md-input-container class="md-icon-float" >
-                    <!-- Use floating label instead of placeholder -->
-                    <label>Tel. no</label>
-                    <md-icon  class="name"></md-icon>
-                    <input ng-model="user.phone" type="text">
 
-                </md-input-container>
+        <!--<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">-->
+            <!--<div class="panel panel-default">-->
+                <!--<div class="panel-heading"><h3>Contacts</h3></div>-->
 
-                    <div class="file_input">
+                <!--<table class="table table-striped">-->
+                    <!--<thead><tr>-->
+                        <!--<th>Name</th>-->
 
-                            <label>File</label>
-                            <input type="file"/>
+
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr ng-repeat="contact in contacts">-->
+                        <!--<td ng-click="edit(contact)">{[{ contact.first_name +'  '+ contact.last_name}]}</td>-->
+
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+                <!--<ul class="pager" >-->
+                    <!--<li class="previous btn-danger"><a href="" ng-click="previous()">Previous</a></li>-->
+                    <!--<li class="next btn-default">    <a href="" ng-click="next()">Next</a></li>-->
+                <!--</ul>-->
+                <!--<md-button  class="md-primary">Add</md-button>-->
+                <!--<md-button class="md-warn">Delete</md-button>-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+        <form name="myform" action="" novalidate>
+        <div class="col-xs-8 col-sm-6 col-md-6 col-lg-5">
+
+            <div class="col-md-12">
+                <div class="row">
+<span style="color:red" ng-show="myform.first_name.$dirty">
+                <span class="error_input" style="color:red" ng-show="myform.first_name.$error.required">Name</span>
+                <span class="error_input" style="color:#0099cc;" ng-show="myform.first_name.$valid && first_name_focus">Name</span>
+                <span class="error_input" style="color:#59b137;" ng-show="(myform.first_name.$valid && first_name_blur)">Name</span>
+            </span><span style="color:transparent;">dummy</span>
+                </div></div>
+            <input type="text" name="first_name" ng-model="user.first_name" ng-class="{valid_input:(myform.first_name.$valid && first_name_blur),invalid_input:myform.first_name.$invalid,clear_input:myform.first_name.$pristine,focused_input:(first_name_focus && myform.first_name.$valid)}" ng-required="true" class="clear_input"
+                   ng-focus="first_name_focus=true;first_name_blur=false;" ng-blur="first_name_blur=true;first_name_focus=false;"
+                   placeholder="Name"  ng-init="first_name_focus=false;first_name_blur=false">
+            <div class="col-md-12">
+                <div class="row">
+	<span style="color:red" ng-show="myform.first_name.$dirty && myform.first_name.$invalid">
+             <span class="error_input" ng-show="myform.first_name.$error.required">Name is required</span>
+    </span><span style="color:transparent;">dummy</span>
+                </div></div>
+
+
+
+            <div class="col-md-12">
+                <div class="row">
+<span style="color:red" ng-show="myform.last_name.$dirty">
+                <span class="error_input" style="color:red" ng-show="myform.last_name.$error.required">Sur-Name</span>
+                <span class="error_input" style="color:#0099cc;" ng-show="myform.last_name.$valid && last_name_focus">Sur-Name</span>
+                <span class="error_input" style="color:#59b137;" ng-show="(myform.last_name.$valid && last_name_blur)">Sur-Name</span>
+            </span><span style="color:transparent;">dummy</span>
+                </div></div>
+            <input type="text" name="last_name" ng-model="user.last_name" ng-class="{valid_input:(myform.last_name.$valid && last_name_blur),invalid_input:myform.last_name.$invalid,clear_input:myform.last_name.$pristine,focused_input:(last_name_focus && myform.last_name.$valid)}" ng-required="true" class="clear_input"
+                   ng-focus="last_name_focus=true;last_name_blur=false;" ng-blur="last_name_blur=true;last_name_focus=false;"
+                   placeholder="Sur-Name"  ng-init="last_name_focus=false;last_name_blur=false">
+            <div class="col-md-12">
+                <div class="row">
+	<span style="color:red" ng-show="myform.last_name.$dirty && myform.last_name.$invalid">
+             <span class="error_input" ng-show="myform.last_name.$error.required">Sur-Name is required</span>
+    </span><span style="color:transparent;">dummy</span>
+                </div></div>
+
+            <div class="col-md-12">
+                <div class="row">
+<span style="color:red" ng-show="myform.phone.$dirty">
+                <span class="error_input" style="color:red" ng-show="myform.phone.$error.required">Tel.-no</span>
+                <span class="error_input" style="color:#0099cc;" ng-show="myform.phone.$valid && phone_focus">Tel.-no</span>
+                <span class="error_input" style="color:#59b137;" ng-show="(myform.phone.$valid && phone_blur)">Tel.-no</span>
+            </span><span style="color:transparent;">dummy</span>
+                </div></div>
+            <input type="text" name="phone" ng-model="user.phone" ng-class="{valid_input:(myform.phone.$valid && phone_blur),invalid_input:myform.phone.$invalid,clear_input:myform.phone.$pristine,focused_input:(phone_focus && myform.phone.$valid)}" ng-required="true" class="clear_input"
+                   ng-focus="phone_focus=true;phone_blur=false;" ng-blur="phone_blur=true;phone_focus=false;"
+                   placeholder="Tel.-no"  ng-init="phone_focus=false;phone_blur=false">
+            <div class="col-md-12">
+                <div class="row">
+	<span style="color:red" ng-show="myform.phone.$dirty && myform.phone.$invalid">
+             <span class="error_input" ng-show="myform.phone.$error.required">Tel.-no is required</span>
+    </span><span style="color:transparent;">dummy</span>
+                </div></div>
+
+
+            <div class="row " >
+
+                <div class="col-md-6">
+
+
+
+
+                    <div class="col-md-12">
+                        <div class="row">
+	<span style="color:red" ng-show="myform.comment.$dirty">
+                <span class="error_input" style="color:red" ng-show="myform.comment.$invalid">Text comments </span>
+                <span class="error_input" style="color:#0099cc;" ng-show="myform.comment.$valid && comment_focus">Text comments</span>
+                <span class="error_input" style="color:#59b137;" ng-show="(myform.comment.$valid && comment_blur)">Text comments</span>
+            </span><span style="color:transparent;">dummy</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+
+<textarea style="height: 150px;"  name="comment" ng-model="user.comment"   cols="30" rows="12" placeholder="Text comments"
+           ng-class="{valid_input:(myform.comment.$valid && comment_blur),invalid_input:myform.comment.$invalid,clear_input:myform.comment.$pristine,focused_input:(comment_focus && myform.comment.$valid)}" ng-required="true"
+           class="clear_input"
+           ng-focus="comment_focus=true;comment_blur=false;" ng-blur="comment_blur=true;comment_focus=false;"
+           ng-init="comment_focus=false;comment_blur=false"
+        ></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+	<span style="color:red" ng-show="myform.comment.$dirty && myform.comment.$invalid">
+             <span class="error_input" ng-show="myform.comment.$error.required">ошибка ввода:  обязательное поле</span>
+
+    </span><span style="color:transparent;">dummy</span>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="col-md-5">
+                    <div class="row">
+                    <div class="col-md-12">
+
+                            <div class="image">
+                                <img class="img-responsive" src="images/default_image.png">
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div ngf-select ngf-drop ng-model="files"  ngf-multiple="false" ngf-pattern="image/*" accept="image/*"   ngf-drag-over-class="drop-box.dragover" ngf-validate="validateObj" ngf-keep="keepDistinct ? 'distinct' : keep" ngf-allow-dir="allowDir" class="drop-box ng-valid ng-valid-min-size ng-valid-max-size ng-valid-max-total-size ng-valid-validate-fn ng-valid-min-height ng-valid-min-width ng-valid-ratio ng-valid-max-ratio ng-valid-min-ratio ng-valid-max-duration ng-valid-min-duration ng-valid-validate-async-fn ng-valid-max-height ng-valid-max-width ng-dirty" ngf-drop-available="true">Select Image
+
+                                </div>
+
+
+                            </div>
+                            <div class="col-xs-6">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
 
                     </div>
-                    <div class="comments">
 
-                        <md-input-container>
-                        <label>Comments</label>
-                        <textarea ng-model="user.comment" rows="4" ></textarea>
-                    </md-input-container></div>
 
-                <md-input-container class="md-icon-float" >
-                    <md-button ng-show="!user._id" class="md-raised" ng-click="add()">Add</md-button>
-                    <md-button ng-show="user._id"  class="md-raised" ng-click="update()">Save</md-button>
-                </md-input-container>
-            </md-content>
+                </div>
+
+            </div>
+</div>
+
+            </form>
+
+
+        <!--<md-content layout-padding class="autoScroll">-->
+                <!--<md-input-container class="md-icon-float" >-->
+                    <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
+                    <!--<label>Name</label>-->
+                    <!--<md-icon  class="name"></md-icon>-->
+                    <!--<input ng-model="user.first_name" required   maxlength="30" type="text">-->
+                <!--</md-input-container>-->
+                <!--<md-input-container class="md-icon-float" >-->
+                    <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
+                    <!--<label>Sur-Name</label>-->
+                    <!--<md-icon  class="name"></md-icon>-->
+                    <!--<input ng-model="user.last_name" type="text">-->
+
+                <!--</md-input-container>-->
+                <!--<md-input-container class="md-icon-float" >-->
+                    <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
+                    <!--<label>Tel. no</label>-->
+                    <!--<md-icon  class="name"></md-icon>-->
+                    <!--<input ng-model="user.phone" type="text">-->
+
+                <!--</md-input-container>-->
+
+                    <!--<div class="file_input">-->
+
+                            <!--<label>File</label>-->
+                            <!--<input type="file"/>-->
+
+                    <!--</div>-->
+                    <!--<div class="comments">-->
+
+                        <!--<md-input-container>-->
+                        <!--<label>Comments</label>-->
+                        <!--<textarea ng-model="user.comment" rows="4" ></textarea>-->
+                    <!--</md-input-container></div>-->
+
+                <!--<md-input-container class="md-icon-float" >-->
+                    <!--<md-button ng-show="!user._id" class="md-raised" ng-click="add()">Add</md-button>-->
+                    <!--<md-button ng-show="user._id"  class="md-raised" ng-click="update()">Save</md-button>-->
+                <!--</md-input-container>-->
+            <!--</md-content>-->
 
         </div>
-        </form>
+
     </div>
 </div>
 <!--<div class="flexbox-container">-->

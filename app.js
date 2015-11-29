@@ -26,6 +26,17 @@ var allowCrossDomain = function(req, res, next) {
 
 }
 app.use(allowCrossDomain);
+
+// Requires multiparty
+multiparty = require('connect-multiparty'),
+    multipartyMiddleware = multiparty(),
+
+    FileUploader = require('./routes/FileUploader');
+
+// Example endpoint
+app.post('/api/uploads', multipartyMiddleware, FileUploader.uploadFile);
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
