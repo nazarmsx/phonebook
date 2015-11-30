@@ -1,21 +1,37 @@
 FileUploader = function() {};
+var fs=require('fs');
+var dir = './uploads';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
 
 FileUploader.prototype.uploadFile = function(req, res) {
     // We are able to access req.files.file thanks to 
     // the multiparty middleware
     var file = req.files.file;
-    console.log(file.name);
-    console.log(file.type);
+    //console.log(file.name);
+    //console.log(file.type);
     console.log(JSON.stringify(req.files.file));
-    //fs.readFile(req.files.displayImage.path, function (err, data) {
-    //
-    //    var newPath = __dirname + "/uploads/"+file.name;
-    //    fs.writeFile(newPath, data, function (err) {
-    //        res.redirect("back");
-    //    });
-    //});
+    res.writeHead(200, {"Content-Type": "application/json"});
 
-    res.end(JSON.stringify({fileName:'lol'}));
+    fs.readFile(req.files.file.path, function (err, data) {
+        if(err){
+        console.log('error');
+        res.end("{error}"); return;}
+        else {
+        }
+
+        var newPath = 'uploads'+file.name;
+
+        fs.writeFile(newPath, data, function (err) {
+if(err)
+console.log(err);
+            res.end(JSON.stringify({fileName:newPath}));
+        });
+    });
+
+
 }
 
 module.exports = new FileUploader();
