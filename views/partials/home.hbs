@@ -1,57 +1,22 @@
-
-
-
-
 <div class="container-fluid">
+
     <div class="row">
-
-
             <div class="col-xs-12 col-md-4 ">
                 <section>
                     <article ng-repeat="contact in contacts">
                         <div title="Go to contact details" class="contact"  ng-click="edit(contact)">
-                            <img class="contacts-img" ng-src={[{contact.imageUrl}]}>
+                            <img class="contacts-img" ng-src={[{contact.image}]}>
                             <h3>{[{contact.first_name}]} {[{contact.last_name}]}</h3>
                             <h6>{[{contact.phone}]}</h6>
                         </div>
                     </article>
                 </section>
+
                 <div class="row">
                     <div class="col-xs-1"><button type="button" class="btn btn-default">+</button></div>
                     <div class="col-xs-1"><button type="button" class="btn btn-default">-</button></div>
-
                 </div>
             </div>
-
-
-        <!--<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">-->
-            <!--<div class="panel panel-default">-->
-                <!--<div class="panel-heading"><h3>Contacts</h3></div>-->
-
-                <!--<table class="table table-striped">-->
-                    <!--<thead><tr>-->
-                        <!--<th>Name</th>-->
-
-
-                    <!--</tr>-->
-                    <!--</thead>-->
-                    <!--<tbody>-->
-                    <!--<tr ng-repeat="contact in contacts">-->
-                        <!--<td ng-click="edit(contact)">{[{ contact.first_name +'  '+ contact.last_name}]}</td>-->
-
-                    <!--</tr>-->
-                    <!--</tbody>-->
-                <!--</table>-->
-                <!--<ul class="pager" >-->
-                    <!--<li class="previous btn-danger"><a href="" ng-click="previous()">Previous</a></li>-->
-                    <!--<li class="next btn-default">    <a href="" ng-click="next()">Next</a></li>-->
-                <!--</ul>-->
-                <!--<md-button  class="md-primary">Add</md-button>-->
-                <!--<md-button class="md-warn">Delete</md-button>-->
-
-            <!--</div>-->
-        <!--</div>-->
-
 
 
         <form name="myform" action="" novalidate>
@@ -134,7 +99,7 @@
                         <div class="row">
 
 <textarea style="height: 150px;"  name="comment" ng-model="user.comment"   cols="30" rows="12" placeholder="Text comments"
-           ng-class="{valid_input:(myform.comment.$valid && comment_blur),invalid_input:myform.comment.$invalid,clear_input:myform.comment.$pristine,focused_input:(comment_focus && myform.comment.$valid)}" ng-required="true"
+           ng-class="{valid_input:(myform.comment.$valid && comment_blur),invalid_input:myform.comment.$invalid,clear_input:myform.comment.$pristine,focused_input:(comment_focus && myform.comment.$valid)}"
            class="clear_input"
            ng-focus="comment_focus=true;comment_blur=false;" ng-blur="comment_blur=true;comment_focus=false;"
            ng-init="comment_focus=false;comment_blur=false"
@@ -144,7 +109,7 @@
                     <div class="col-md-12">
                         <div class="row">
 	<span style="color:red" ng-show="myform.comment.$dirty && myform.comment.$invalid">
-             <span class="error_input" ng-show="myform.comment.$error.required">ошибка ввода:  обязательное поле</span>
+             <span class="error_input" ng-show="myform.comment.$error.required">is required</span>
 
     </span><span style="color:transparent;">dummy</span>
                         </div>
@@ -160,21 +125,21 @@
                     <div class="col-md-12">
 
                             <div class="image">
-                                <img class="img-responsive" src="images/default_image.png">
+                                <img class="img-responsive" src="{[{user.image}]}">
                             </div>
                         </div>
                     </div>
 
                         <div class="row">
                             <div class="col-xs-6">
-                                <div ngf-select ngf-drop ng-model="files"  ngf-multiple="false" ngf-pattern="image/*" accept="image/*"   ngf-drag-over-class="drop-box.dragover" ngf-validate="validateObj" ngf-keep="keepDistinct ? 'distinct' : keep" ngf-allow-dir="allowDir" class="drop-box ng-valid ng-valid-min-size ng-valid-max-size ng-valid-max-total-size ng-valid-validate-fn ng-valid-min-height ng-valid-min-width ng-valid-ratio ng-valid-max-ratio ng-valid-min-ratio ng-valid-max-duration ng-valid-min-duration ng-valid-validate-async-fn ng-valid-max-height ng-valid-max-width ng-dirty" ngf-drop-available="true">Select Image
+                                <div ngf-select ngf-drop ng-model="files" ngf-change="uploadImage($files)" ngf-multiple="false" ngf-pattern="image/*" accept="image/*"   ngf-drag-over-class="drop-box.dragover" ngf-validate="validateObj" ngf-keep="keepDistinct ? 'distinct' : keep" ngf-allow-dir="allowDir" class="drop-box ng-valid ng-valid-min-size ng-valid-max-size ng-valid-max-total-size ng-valid-validate-fn ng-valid-min-height ng-valid-min-width ng-valid-ratio ng-valid-max-ratio ng-valid-min-ratio ng-valid-max-duration ng-valid-min-duration ng-valid-validate-async-fn ng-valid-max-height ng-valid-max-width ng-dirty" ngf-drop-available="true">Select Image
 
                                 </div>
 
 
                             </div>
                             <div class="col-xs-6">
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <div class="delete-box" ng-click="deleteImage()">-</div>
                             </div>
 
                     </div>
@@ -182,10 +147,29 @@
 
                 </div>
 
+                <div class="col-md-12">
+                    <div class="row">
+                <button type="button" class="btn btn-primary" ng-disabled="myform.$invalid || myform.$pristine" class="btn" ng-show="!user._id" ng-click="add()">Add contact</button>
+                <button type="button" class="btn btn-primary" ng-disabled="myform.$invalid" ng-show="user._id"   ng-click="update()">Save changes</button>
+                        <button type="button" class="btn btn-danger"  ng-show="user._id"   ng-click="delete()">Delete contact</button>
+
+                    </div>
+                    </div>
             </div>
 </div>
 
-            </form>
+            <div class="row ">
+                <div class="col-xs-12 col-md-4 row_margin">
+
+                    <uib-alert ng-repeat="alert in alerts" type="{[{alert.type}]}" close="closeAlert($index)" dismiss-on-timeout="2000">{[{alert.msg}]}</uib-alert>
+
+
+                </div>
+            </div>
+        </form>
+
+        </div>
+</div>
 
 
         <!--<md-content layout-padding class="autoScroll">-->

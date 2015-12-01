@@ -87,15 +87,27 @@ textarea {
 
 .drop-box {
   background: #F8F8F8;
-  border: 5px dashed #DDD;
+  border: 4px dashed #DDD;
   width: 120px;
   height: 50px;
   text-align: center;
   padding: 5px 10px 0 10px;
   margin-left: 10px;
   margin-top: 25px;
+  font-size: 1em;
 }
 
+.delete-box {
+  background: #F8F8F8;
+  border: 4px dashed #DDD;
+  width: 40px;
+  height: 50px;
+  text-align: center;
+  padding: 5px 10px 0 10px;
+  margin-left: 30px;
+  margin-top: 25px;
+  font-size: 1.2em;
+}
 
 
 .drop-box.dragover {
@@ -108,7 +120,7 @@ textarea {
   width:25px;
   height:25px;
 
-  background-image:url('../images/close_red.png');
+
   background-repeat:no-repeat;
   background-position: right center;
 }
@@ -119,16 +131,13 @@ textarea {
   margin-left:10px;
   width:170px;
   height:170px;
-  border: 2px solid black;
+  border: 2px solid grey;
   cursor: hand;
 }
 
 
 
-.btn-danger{
-  margin-top: 30px;
-  margin-left:20px;
-}
+
 
 
 
@@ -319,7 +328,9 @@ input.ng-dirty.ng-invalid {
 }
 
 
-
+.row_margin{
+  margin-top:15px;
+}
 
 
 

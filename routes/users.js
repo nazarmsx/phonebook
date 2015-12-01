@@ -9,7 +9,8 @@ var TodoSchema = new mongoose.Schema({
  first_name: String,
  last_name: String,
  phone: String,
- comment:String
+ comment:String,
+ image:String
 });
 
 var Todo = mongoose.model('contact', TodoSchema);

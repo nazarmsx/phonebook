@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp', ['myApp.controllers','ngRoute','ngResource','ngRoute','ngMaterial','ngFileUpload']);
+var app = angular.module('myApp', ['myApp.controllers','ngRoute','ngResource','ngRoute','ngMaterial','ngFileUpload','ui.bootstrap']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {

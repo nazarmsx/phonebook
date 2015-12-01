@@ -44,7 +44,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(app.router);
+//app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/partials/:name', routes.partials);
 app.use('/contacts', users);
 app.get('/', routes.index);

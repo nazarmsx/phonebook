@@ -1,6 +1,6 @@
 FileUploader = function() {};
 var fs=require('fs');
-var dir = './uploads';
+var dir = './public/uploads';
 
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
@@ -22,12 +22,12 @@ FileUploader.prototype.uploadFile = function(req, res) {
         else {
         }
 
-        var newPath = 'uploads'+file.name;
+        var newPath = './public/uploads/'+file.name;
 
         fs.writeFile(newPath, data, function (err) {
 if(err)
 console.log(err);
-            res.end(JSON.stringify({fileName:newPath}));
+            res.end(JSON.stringify({fileName:'uploads/'+file.name}));
         });
     });
 
