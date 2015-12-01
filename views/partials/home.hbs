@@ -12,15 +12,15 @@
                     </article>
                 </section>
 
-                <div class="row">
-                    <div class="col-xs-1"><button type="button" class="btn btn-default">+</button></div>
-                    <div class="col-xs-1"><button type="button" class="btn btn-default">-</button></div>
-                </div>
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-1"><button type="button" class="btn btn-default">+</button></div>-->
+                    <!--<div class="col-xs-1"><button type="button" class="btn btn-default">-</button></div>-->
+                <!--</div>-->
             </div>
 
 
         <form name="myform" action="" novalidate>
-        <div class="col-xs-8 col-sm-6 col-md-6 col-lg-5">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
 
             <div class="col-md-12">
                 <div class="row">
@@ -102,8 +102,8 @@
            ng-class="{valid_input:(myform.comment.$valid && comment_blur),invalid_input:myform.comment.$invalid,clear_input:myform.comment.$pristine,focused_input:(comment_focus && myform.comment.$valid)}"
            class="clear_input"
            ng-focus="comment_focus=true;comment_blur=false;" ng-blur="comment_blur=true;comment_focus=false;"
-           ng-init="comment_focus=false;comment_blur=false"
-        ></textarea>
+           ng-init="comment_focus=false;comment_blur=false"></textarea>
+       <!--</textarea>-->
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -156,126 +156,19 @@
                     </div>
                     </div>
             </div>
-</div>
-
             <div class="row ">
-                <div class="col-xs-12 col-md-4 row_margin">
+                <div class="col-xs-12 col-md-6 row_margin">
 
                     <uib-alert ng-repeat="alert in alerts" type="{[{alert.type}]}" close="closeAlert($index)" dismiss-on-timeout="2000">{[{alert.msg}]}</uib-alert>
 
 
                 </div>
             </div>
+</div>
+
+
         </form>
 
         </div>
 </div>
 
-
-        <!--<md-content layout-padding class="autoScroll">-->
-                <!--<md-input-container class="md-icon-float" >-->
-                    <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
-                    <!--<label>Name</label>-->
-                    <!--<md-icon  class="name"></md-icon>-->
-                    <!--<input ng-model="user.first_name" required   maxlength="30" type="text">-->
-                <!--</md-input-container>-->
-                <!--<md-input-container class="md-icon-float" >-->
-                    <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
-                    <!--<label>Sur-Name</label>-->
-                    <!--<md-icon  class="name"></md-icon>-->
-                    <!--<input ng-model="user.last_name" type="text">-->
-
-                <!--</md-input-container>-->
-                <!--<md-input-container class="md-icon-float" >-->
-                    <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
-                    <!--<label>Tel. no</label>-->
-                    <!--<md-icon  class="name"></md-icon>-->
-                    <!--<input ng-model="user.phone" type="text">-->
-
-                <!--</md-input-container>-->
-
-                    <!--<div class="file_input">-->
-
-                            <!--<label>File</label>-->
-                            <!--<input type="file"/>-->
-
-                    <!--</div>-->
-                    <!--<div class="comments">-->
-
-                        <!--<md-input-container>-->
-                        <!--<label>Comments</label>-->
-                        <!--<textarea ng-model="user.comment" rows="4" ></textarea>-->
-                    <!--</md-input-container></div>-->
-
-                <!--<md-input-container class="md-icon-float" >-->
-                    <!--<md-button ng-show="!user._id" class="md-raised" ng-click="add()">Add</md-button>-->
-                    <!--<md-button ng-show="user._id"  class="md-raised" ng-click="update()">Save</md-button>-->
-                <!--</md-input-container>-->
-            <!--</md-content>-->
-
-        </div>
-
-    </div>
-</div>
-<!--<div class="flexbox-container">-->
-    <!--<div class="list">-->
-        <!--<section layout="row" layout-align="center top" layout-wrap="" style="align-self: flex-start;">-->
-
-        <!--<table>-->
-            <!--<tr ng-repeat="contact in contacts">-->
-                <!--<td>{[{ contact.first_name }]}</td>-->
-                <!--<td>{[{ contact.last_name }]}</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-        <!--</section>-->
-            <!--<section layout="row"  layout-align="center center" layout-wrap="" style="align-self: flex-end;">-->
-
-      <!--<md-button  class="md-primary">Add</md-button>-->
-      <!--<md-button class="md-warn">Delete</md-button>-->
-
-
-    <!--</section>-->
-    <!--</div>-->
-    <!--<div class="user_input">-->
-        <!--<md-content layout-padding class="autoScroll">-->
-            <!--<md-input-container class="md-icon-float" >-->
-                <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
-                <!--<label>Name</label>-->
-                <!--<md-icon  class="name"></md-icon>-->
-                <!--<input ng-model="user.first_name" type="text">-->
-            <!--</md-input-container>-->
-            <!--<md-input-container class="md-icon-float" >-->
-                <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
-                <!--<label>Sur-Name</label>-->
-                <!--<md-icon  class="name"></md-icon>-->
-                <!--<input ng-model="user.last_name" type="text">-->
-
-            <!--</md-input-container>-->
-            <!--<md-input-container class="md-icon-float" >-->
-                <!--&lt;!&ndash; Use floating label instead of placeholder &ndash;&gt;-->
-                <!--<label>Tel. no</label>-->
-                <!--<md-icon  class="name"></md-icon>-->
-                <!--<input ng-model="user.telphone_number" type="text">-->
-
-            <!--</md-input-container>-->
-            <!--<div class="flexbox-container">-->
-                <!--<div class="file_input">fdf</div>-->
-                <!--<div class="comments"><md-input-container>-->
-                    <!--<label>Comments</label>-->
-                    <!--<textarea ng-model="color" rows="4" required md-maxlength="10"></textarea>-->
-                <!--</md-input-container></div>-->
-            <!--</div>-->
-            <!--<md-input-container class="md-icon-float" >-->
-                <!--<md-button class="md-raised" ng-click="login()">Login</md-button>-->
-            <!--</md-input-container>-->
-        <!--</md-content>-->
-
-
-    <!--</div>-->
-
-
-
-
-
-
-<!--</div>-->

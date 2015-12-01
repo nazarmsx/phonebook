@@ -2,19 +2,19 @@
  * Created by nazar on 27.11.2015.
  */
 
-controllers.controller('HomeController', ['$scope','$location','$http', 'Upload',function($scope,$location,$http,Upload) {
+controllers.controller('HomeController', ['$scope','$location','$http', 'Upload','$rootScope',function($scope,$location,$http,Upload,$rootScope) {
     //$scope.contacts=
     //    [{id:1,first_name:'Nazar ',last_name:'Chuba',phone:'+38(096)-232-23-26',comment:'First comment.'},
     //    {id:2,first_name:'Steve',last_name:'Jobs',phone:'+38(096)-999-34-32',comment:'Second comment.'},
     //    {id:3,first_name:'Bill',last_name:'Gates',phone:'+38(096)-902-23-93',comment:'Third comment.'}];
 
-
+//console.log($rootScope.lol);
     $scope.setDefault=function(){
         $scope.user={};
         $scope.user.image='images/user.png';
     };
     $scope.setDefault();
-    $http.get('./contacts/user/root').success(
+    $http.get('./contacts/user/'+$rootScope.login).success(
         function(data){
             $scope.user_data=data[0];
             $scope.contacts=data[0].contacts;
@@ -33,7 +33,7 @@ $scope.edit=function(contact){
             url:'./contacts/contact/'+$scope.user_data._id,
             data:
         {
-            first_name: $scope.user.first_name,
+            password: $scope.user.first_name,
                 last_name: $scope.user.last_name,
             phone: $scope.user.phone,
             comment: $scope.user.comment,
@@ -58,7 +58,7 @@ $scope.edit=function(contact){
                 comment: $scope.user.comment,
                 image:$scope.user.image,
                 _id:$scope.user._id
-            }}).then(function(data){ $http.get('./contacts/user/root').success(
+            }}).then(function(data){ $http.get('./contacts/user/'+$rootScope.login).success(
             function(data){
                 $scope.user_data=data[0];
                 $scope.contacts=data[0].contacts;

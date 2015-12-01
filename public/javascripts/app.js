@@ -20,6 +20,14 @@ app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{');
     $interpolateProvider.endSymbol('}]}');
 });
+
+app.run(['$rootScope','$http','$location',
+    function($rootScope,$http){
+        $rootScope.password='root';
+        $rootScope.login='root';
+
+    }]);
+
 //'use strict';
 //
 //var app = angular.module('myApp',['ngRoute','ngResource','ngRoute'])
